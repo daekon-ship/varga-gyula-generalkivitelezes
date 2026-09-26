@@ -287,31 +287,48 @@ header.site.scrolled{box-shadow:0 12px 40px -18px rgba(0,0,0,.7)}
 .ba-frame{
   position:relative;aspect-ratio:var(--ratio,16/10);
   border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel);
-  cursor:ew-resize;touch-action:none;
   box-shadow:0 34px 70px -40px rgba(0,0,0,.65);
 }
+.ba-frame:focus-within{outline:2px solid var(--copper);outline-offset:3px}
 .ba-media{position:absolute;inset:0;margin:0}
 .ba-media img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   user-select:none;-webkit-user-select:none;-webkit-user-drag:none;pointer-events:none;
 }
-.ba-after{clip-path:inset(0 0 0 var(--pos,50%));-webkit-clip-path:inset(0 0 0 var(--pos,50%))}
+/* az ELŐTTE réteg felül van, a csúszka állásáig látszik balra (vadlak-módszer) */
+.ba-media--before{
+  clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0);
+  -webkit-clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0);
+}
 .ba-tag{
   position:absolute;top:14px;z-index:3;
   font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  background:rgba(18,20,23,.78);backdrop-filter:blur(6px);
+  background:rgba(18,20,23,.85);backdrop-filter:blur(6px);
   border:1px solid var(--line);border-radius:4px;padding:7px 12px;color:var(--ink);
 }
-.ba-tag.before{left:14px;color:var(--ink-2)}
-.ba-tag.after{right:14px;color:var(--copper-hi);border-color:rgba(196,122,75,.4)}
-.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);z-index:4;width:2px;margin-left:-1px;background:var(--copper)}
-.ba-knob{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:46px;height:46px;border-radius:50%;
-  background:rgba(20,22,25,.92);border:1px solid var(--copper);color:var(--copper-hi);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(0,0,0,.45);
+.ba-tag.before{left:14px}
+.ba-tag.after{right:14px}
+/* osztóvonal + gyémánt fogantyú */
+.ba-divider{
+  position:absolute;top:0;bottom:0;left:var(--pos,50%);z-index:3;width:2px;
+  background:var(--ink);transform:translateX(-1px);pointer-events:none;
 }
+.ba-divider i{
+  position:absolute;top:50%;left:50%;width:40px;height:40px;
+  border:2px solid var(--copper-hi);background:rgba(20,22,25,.92);
+  transform:translate(-50%,-50%) rotate(45deg);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.45);
+}
+.ba-divider i svg{transform:rotate(-45deg)}
+/* láthatatlan, teljes felületű natív range: egér, érintés és billentyű egyaránt */
+.ba-range{
+  position:absolute;inset:0;z-index:5;width:100%;height:100%;margin:0;
+  cursor:ew-resize;opacity:0;-webkit-appearance:none;appearance:none;
+}
+/* a thumb elrejtése: az ujj/előző bárhol a képen az értéket állítja (vadlak-módszer) */
+.ba-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:1px;height:1px}
+.ba-range::-moz-range-thumb{width:1px;height:1px;border:0}
+.ba-range::-moz-range-track{background:none}
 .ba-hint{
   position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:4;
   font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--ink-2);
@@ -1280,7 +1297,7 @@ const BA_CONFIG = [
     altB: 'Emelt medencetest nyers betonlapjával, a káva széle még kialakítatlan állapotban',
     altA: 'Ugyanaz az emelt medence burkolt kávával és rozsdamentes szegéllyel',
     title: 'Emelt medence — káva kialakítás', cat: 'Medence',
-    ratio: '4/3', pair: false,
+    ratio: '4/3', pair: true,
     desc: 'Nyers beton-testtől a burkolt káváig: szigetelés, fólia, járólap-burkolat és rozsdamentes élzárás.'
   },
   {
@@ -1288,7 +1305,7 @@ const BA_CONFIG = [
     altB: 'Nyers beton támfalak és lépcső a lejtős kertben, a medencetest még fóliázás előtt',
     altA: 'Kész medence burkolt szegéllyel, rendezett lejtős kertben',
     title: 'Lejtős kert — támfalak, lépcső és medence', cat: 'Kültér',
-    ratio: '4/3', pair: false,
+    ratio: '4/3', pair: true,
     desc: 'Teljes kertépítési munka: blokkos támfalak, beton lépcső, medencefóliázás és burkolt szegélyek.'
   },
   {
@@ -1296,7 +1313,7 @@ const BA_CONFIG = [
     altB: 'Nyers beton terasz és lépcső a modern ház előtt, burkolás előtt',
     altA: 'Nagy formátumú szürke lapokkal burkolt terasz és lépcső a medencével',
     title: 'Terasz és lépcső — nagy formátumú burkolat', cat: 'Burkolás',
-    ratio: '4/3', pair: false,
+    ratio: '4/3', pair: true,
     desc: 'Beton szerkezetre nagy formátumú kőlapok: szinterezés, fuga, lefolyócsatorna a lépcsőknél.'
   }
 ];
@@ -1362,19 +1379,20 @@ function initBeforeAfter() {
       return `
       <article class="ba-item reveal">
         <div class="ba-head"><h3>${p.title}</h3><span class="ba-cat">${p.cat}</span></div>
-        <div class="ba-frame" tabindex="0" role="slider" aria-label="Előtte–utána összehasonlító csúszka: ${p.title}"
-             aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--ratio:${p.ratio || '16/10'}">
-          <figure class="ba-media ba-before">
-            <img src="${p.before}" alt="${p.altB}" loading="lazy" decoding="async" draggable="false">
-            <figcaption class="ba-tag before">Előtte</figcaption>
-          </figure>
-          <figure class="ba-media ba-after">
+        <div class="ba-frame" style="--ratio:${p.ratio || '16/10'}">
+          <figure class="ba-media ba-media--after">
             <img src="${p.after}" alt="${p.altA}" loading="lazy" decoding="async" draggable="false">
             <figcaption class="ba-tag after">Utána</figcaption>
           </figure>
-          <span class="ba-handle"><span class="ba-knob" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18-6-6 6-6M15 6l6 6-6 6"/></svg>
-          </span></span>
+          <figure class="ba-media ba-media--before">
+            <img src="${p.before}" alt="${p.altB}" loading="lazy" decoding="async" draggable="false">
+            <figcaption class="ba-tag before">Előtte</figcaption>
+          </figure>
+          <span class="ba-divider" aria-hidden="true"><i>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18-6-6 6-6M15 6l6 6-6 6"/></svg>
+          </i></span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1"
+                 aria-label="Előtte–utána összehasonlítás: ${p.title} — húzza a csúszkát">
           <span class="ba-hint">Húzza el a csúszkát</span>
         </div>
         <p class="ba-desc">${p.desc || ''}</p>
@@ -1398,35 +1416,12 @@ function initBeforeAfter() {
   }).join('');
 
   host.querySelectorAll('.ba-frame').forEach(frame => {
+    const range = frame.querySelector('.ba-range');
     const set = v => {
-      v = Math.max(0, Math.min(100, v));
       frame.style.setProperty('--pos', v + '%');
-      frame.setAttribute('aria-valuenow', Math.round(v));
+      if (v > 0.5 && v < 99.5) frame.dataset.moved = '1';
     };
-    const pctFrom = e => {
-      const r = frame.getBoundingClientRect();
-      const x = (e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0)) - r.left;
-      return x / r.width * 100;
-    };
-    let dragging = false;
-    frame.addEventListener('pointerdown', e => {
-      dragging = true;
-      try { frame.setPointerCapture(e.pointerId); } catch (_) {}
-      set(pctFrom(e));
-      frame.dataset.moved = '1';
-      if (e.pointerType !== 'mouse') e.preventDefault();
-    });
-    frame.addEventListener('pointermove', e => {
-      if (!dragging) return;
-      set(pctFrom(e));
-      frame.dataset.moved = '1';
-    });
-    window.addEventListener('pointerup', () => { dragging = false; });
-    frame.addEventListener('keydown', e => {
-      const cur = parseFloat(frame.style.getPropertyValue('--pos')) || 50;
-      if (e.key === 'ArrowLeft')  { set(cur - (e.shiftKey ? 10 : 4)); e.preventDefault(); frame.dataset.moved = '1'; }
-      if (e.key === 'ArrowRight') { set(cur + (e.shiftKey ? 10 : 4)); e.preventDefault(); frame.dataset.moved = '1'; }
-    });
+    range.addEventListener('input', () => set(parseFloat(range.value)));
   });
 }
 
