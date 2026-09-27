@@ -59,7 +59,7 @@ Az előtte–utána párok a script tetején a **`BA_CONFIG`** listában vannak.
 
 ## 7. Státusz
 
-- ✅ Csak hiteles, azonos nézőpontú előtte–utána csúszkás párok vannak fent (2 pár).
+- ✅ Csak hiteles, azonos nézőpontú előtte–utána csúszkás párok vannak fent (4 pár: emelt medence, medencetest, medencebelső, terasz-lépcső).
 - ✅ Elsődleges konverzió a telefonhívás (`tel:` linkek: header, mobil hívósáv, kapcsolat szekció, footer).
 - ✅ Reszponzív: 320–1440 px szélességen tesztelve, nulla kicsúszás.
 - ⬜ Domain bekötése után: canonical + OG-kép.

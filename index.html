@@ -314,7 +314,9 @@ header.site.scrolled{box-shadow:0 12px 40px -18px rgba(0,0,0,.7)}
 .ba-range{
   position:absolute;inset:0;z-index:5;width:100%;height:100%;margin:0;
   cursor:ew-resize;opacity:0;-webkit-appearance:none;appearance:none;
+  touch-action:pan-y; /* mobilon a függőleges görgetés menni fog, a vízszintes húzás állítja a csúszkát */
 }
+.ba-frame:has(.ba-range:focus-visible){outline:2px solid var(--copper);outline-offset:3px}
 /* a thumb elrejtése: az ujj/előző bárhol a képen az értéket állítja (vadlak-módszer) */
 .ba-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:1px;height:1px}
 .ba-range::-moz-range-thumb{width:1px;height:1px;border:0}
@@ -593,6 +595,20 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
   .mnav .btn{white-space:normal}
   .mnav .btn span{white-space:nowrap}
   .ba-more .btn{white-space:normal;line-height:1.35}
+  /* ---- mobil vizuális polish ---- */
+  .hero{padding:56px 0 72px}
+  .ba-tag{font-size:10px;padding:6px 10px;top:10px}
+  .ba-tag.before{left:10px}
+  .ba-tag.after{right:10px}
+  .ba-hint{font-size:10.5px;padding:5px 11px;bottom:10px}
+  .ba-divider i{width:34px;height:34px}
+  .ba-desc{font-size:13.5px}
+  .hv-tag{left:12px;bottom:12px;padding:9px 12px;gap:9px;max-width:calc(100% - 24px)}
+  .hv-tag b{font-size:12px}
+  .hv-tag span{font-size:10px}
+  .callband-tel{padding:15px 18px}
+  .c-steps p{font-size:13px}
+  .foot-grid{gap:30px}
 }
 
 /* mobilon a fejléc alatt fix hívósáv */
@@ -713,7 +729,7 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
       <div class="hv-frame">
         <span class="hv-corner tl"></span>
         <span class="hv-corner br"></span>
-        <img src="img/ba-p2-utana.webp" alt="Kivitelezett, burkolt kávájú medence a kertben — kész állapot" width="1200" height="900" fetchpriority="high" decoding="async">
+        <img src="img/ba-p2-utana.webp" alt="Kivitelezett, burkolt kávájú medence a kertben — kész állapot" width="1150" height="863" fetchpriority="high" decoding="async">
         <span class="hv-chip">Régió: <b>Pest megye</b></span>
         <div class="hv-tag"><span class="pulse"></span><span><b>Varga Gyula</b><span>kapcsolattartó — az első beszélgetéstől az átadásig</span></span></div>
       </div>
@@ -1028,9 +1044,9 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
       </ul>
     </div>
   </div>
-  <div class="wrap foot-bottom">
+  <div class="foot-bottom"><div class="wrap">
     <span>© <span id="year">2026</span> Varga Gyula — Generálkivitelezés. Minden jog fenntartva.</span>
-  </div>
+  </div></div>
 </footer>
 
 <!-- mobil fix hívósáv -->
@@ -1069,6 +1085,24 @@ const BA_CONFIG = [
     title: 'Medencetest — szerkezettől a kész testig', cat: 'Medence',
     ratio: '4/3',
     desc: 'Zsaluzóblokk falazat, betonozás, majd a simított, lépcsős és padkás kész medencetest.'
+  },
+  {
+    before: 'img/ba-p11-elotte.webp', after: 'img/ba-p11-utana.webp',
+    w: 1150, h: 863,
+    altB: 'Medencetest vakolt, szigetelt belső falakkal a beépítés elején',
+    altA: 'Ugyanaz a medencetest simított, kész belső felületekkel lépcsővel',
+    title: 'Medencebelső — vakolástól a kész felületig', cat: 'Medence',
+    ratio: '4/3',
+    desc: 'A szigetelt, vakolt szerkezettől a simára húzott, kész medencebelsőig — azonos nézetből fotózva.'
+  },
+  {
+    before: 'img/ba-p9-elotte.webp', after: 'img/ba-p9-utana.webp',
+    w: 1150, h: 863,
+    altB: 'Kültéri lépcső szinterezés alatt, nagy formátumú kőlapokkal',
+    altA: 'Ugyanaz a lépcső kifugázva, kész állapotban',
+    title: 'Terasz-lépcső — szinterezéstől a kész felületig', cat: 'Kültér',
+    ratio: '4/3',
+    desc: 'Nagy formátumú kőlap fektetése és fuga a kültéri lépcsőn — ugyanarról a pontról fotózva.'
   }
 ];
 
