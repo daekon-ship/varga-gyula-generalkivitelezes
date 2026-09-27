@@ -450,7 +450,7 @@ header.site.scrolled{box-shadow:0 12px 40px -18px rgba(0,0,0,.7)}
   text-transform:uppercase;margin-bottom:3px;
 }
 .about-facts dd{font-size:15px}
-.about-facts dd{font-weight:600;text-align:right}
+.about-facts dd{font-weight:600;text-align:left;overflow-wrap:anywhere}
 .about-facts a{color:var(--copper-hi);font-weight:700}
 .about-facts a:hover{color:var(--ink)}
 
@@ -554,6 +554,13 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
 
 @media (max-width:680px){
   .wrap{padding:0 18px}
+  /* fejléc tömörítése: a hosszú tagline mobilon elmarad, hogy a burger ne csússzon ki */
+  .nav{gap:14px;height:66px}
+  .brand{gap:10px}
+  .brand-mark{width:36px;height:36px}
+  .brand-mark svg{width:20px;height:20px}
+  .brand-name{font-size:14px}
+  .brand-name small{display:none}
   .hero{padding:64px 0 78px}
   .hero-cta{flex-direction:column}
   .hero-cta .btn{width:100%}
