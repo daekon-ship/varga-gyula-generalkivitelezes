@@ -881,7 +881,7 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
     <div class="sec-head reveal">
       <span class="eyebrow">Munkáink eredménye</span>
       <h2 class="h2">Előtte. Utána. <span class="lite">Közte a kivitelezés.</span></h2>
-      <p class="lead">Kivitelezéseink a munka előtti és a kész állapotban fotózva. Húzható összehasonlítót ott használunk, ahol a két kép azonos nézőpontú — ott, ahol nem, a két állapot egymás mellett látható.</p>
+      <p class="lead">Húzza el a csúszkát a fotón: ezt az állapotot kaptuk — ezt adtuk át. Új párokkal folyamatosan bővül.</p>
     </div>
 
     <!--
@@ -1300,22 +1300,8 @@ const BA_CONFIG = [
     ratio: '4/3', pair: true,
     desc: 'Nyers beton-testtől a burkolt káváig: szigetelés, fólia, járólap-burkolat és rozsdamentes élzárás.'
   },
-  {
-    before: 'img/ba-p4-elotte.webp', after: 'img/ba-p4-utana.webp',
-    altB: 'Nyers beton támfalak és lépcső a lejtős kertben, a medencetest még fóliázás előtt',
-    altA: 'Kész medence burkolt szegéllyel, rendezett lejtős kertben',
-    title: 'Lejtős kert — támfalak, lépcső és medence', cat: 'Kültér',
-    ratio: '4/3', pair: true,
-    desc: 'Teljes kertépítési munka: blokkos támfalak, beton lépcső, medencefóliázás és burkolt szegélyek.'
-  },
-  {
-    before: 'img/ba-p5-elotte.webp', after: 'img/ba-p5-utana.webp',
-    altB: 'Nyers beton terasz és lépcső a modern ház előtt, burkolás előtt',
-    altA: 'Nagy formátumú szürke lapokkal burkolt terasz és lépcső a medencével',
-    title: 'Terasz és lépcső — nagy formátumú burkolat', cat: 'Burkolás',
-    ratio: '4/3', pair: true,
-    desc: 'Beton szerkezetre nagy formátumú kőlapok: szinterezés, fuga, lefolyócsatorna a lépcsőknél.'
-  }
+  /* Csak azonos vagy közel azonos nézőpontú fotópár kerül ide.
+     A lejtős kertes (p4) és teraszos (p5) párok kameraállása eltérő — azok a galériában láthatók. */
 ];
 
 /* ---------- REFERENCIA GALÉRIA ----------
@@ -1334,6 +1320,7 @@ const GALLERY_CONFIG = [
   { src:'img/p3-zold-medencetest.webp', alt:'Kivakolt medencetest zöld szigeteléssel a gépház előkészítésével', width:900, height:1200, title:'Medencetest szigetelve', place:'Medence — szerkezet és szigetelés', cat:'medence' },
   { src:'img/p4-tamfal-lepcso.webp', alt:'Beton támfalak és lépcső a lejtős kertben', width:900, height:1200, title:'Támfalak és lépcső', place:'Kültéri munkák', cat:'kulter' },
   { src:'img/p4-foliazas.webp', alt:'Medencefólia szerelése a blokkfalak közé', width:900, height:1200, title:'Medencefóliázás', place:'Medence — fóliázás', cat:'medence', pos:'50% 72%' },
+  { src:'img/ba-p4-utana.webp', alt:'Kész, fóliázott medence vízzel, burkolt szegéllyel a lejtős kertben', width:1150, height:863, title:'Kész fóliázott medence', place:'Medence — átadott állapot', cat:'medence' },
   { src:'img/p5-medencetest-blokk.webp', alt:'Medencetest kialakítása blokkfalból a lejtős kertben', width:900, height:1200, title:'Medencetest blokkfalból', place:'Medence — szerkezet', cat:'medence' },
   { src:'img/p5-lapozas-lecessoer.webp', alt:'Nagy formátumú lapok fektetése lefolyócsatornás lejtőn', width:900, height:1200, title:'Burkolás lefolyócsatornával', place:'Terasz — burkolás', cat:'burkolas' },
   { src:'img/p5-lepcso-burkolas.webp', alt:'Lépcső burkolása nagy formátumú lapokkal', width:900, height:1200, title:'Lépcső burkolása', place:'Terasz — burkolás', cat:'burkolas', pos:'50% 62%' },
