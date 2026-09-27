@@ -11,33 +11,35 @@
 
 - **Kettős kattintás az `index.html`-re** — böngészőben azonnal működik, telepítés nélkül.
 - Éles üzemhez: a teljes mappa (index.html + img/) feltölthető bármilyen tárhelyre (pl. tárhelyszolgáltató FTP-je, Netlify, Vercel). Nincs szerver-igény, nincs adatbázis.
+- **Jelenleg élő publikus elérhetőség:** a projekt GitHub Pages-en van (repo: `varga-gyula-generalkivitelezes`). Minden push után néhány percen belül automatikusan frissül.
 
 ## 2. A könnyen cserélhető dolgok
 
 | Mit | Hol az `index.html`-ben |
 |---|---|
 | Cégnév (most: „Varga Gyula – Generálkivitelezés") | `<title>`, header `.brand-name`, footer, `og:title` |
-| Telefonszám (+36 70 251 2561) | keresés: `702512561` — a script tetején a `CONTACT` blokkban és a linkekben |
-| E-mail (gyulavarga68@gmail.com) | keresés: `gyulavarga68` — a `CONTACT` blokk és a mailto linkek |
+| Telefonszám (+36 70 251 2561) | keresés: `702512561` — header, callbar, kapcsolat szekció, footer |
+| E-mail (gyulavarga68@gmail.com) | keresés: `gyulavarga68` — kapcsolat szekció + footer |
 | Logó | a `.brand-mark` SVG-k (header, footer) + a `<link rel="icon">` favicon |
-| Szolgáltatás-szövegek | a „SZOLGÁLTATÁSOK" szekció kártyái |
 
-A `CONTACT` blokk a script tetején egyetlen helyen tartja az elérhetőséget — az űrlap mindenhonnan onnan olvas.
+## 3. Hogyan bővíthető új csúszkás párral
 
-## 3. Hogyan bővíthető képekkel
+Az előtte–utána párok a script tetején a **`BA_CONFIG`** listában vannak. Egy sor = egy pár, **kizárólag csúszkás** megjelenítéssel:
 
-A képek két listában vannak a script tetején:
+```
+{
+  before: 'img/ba-....webp',  after: 'img/ba-....webp',
+  w: 1150, h: 863,            // a képek valós mérete (px) — a layout-ugrás ellen
+  altB: '...', altA: '...',   // a két állapot valódi leírása
+  title: '...', cat: 'Medence',
+  ratio: '4/3',               // a keret képaránya
+  desc: '...'
+}
+```
 
-1. **`BA_CONFIG`** — előtte–utána párok. Egy sor = egy pár:
-   - `before` / `after` a két képfájl,
-   - `title` (kártya címe), `cat` (kategória-címke),
-   - `pair: true` → húzható csúszka (csak azonos nézőpontú fotóknál!), `pair: false` → egymás melletti nézet.
-2. **`GALLERY_CONFIG`** — a galéria. Egy sor = egy kép:
-   - `src`, `alt` (a valódi képtartalom!), `width`, `height`,
-   - `title`, `place`, `cat` (medence / burkolas / kulter),
-   - opcionális `pos: '50% 80%'` — a kártya-nézet fókuszát állítja, ha a középvágás nem jó.
+**Szabály:** csak olyan fotópár kerülhet a listába, amely **azonos vagy közel azonos nézőpontból** készült (ugyanabból a szögből fotózva, csak más munkafázisban). Amelyik képhez nincs valódi pár, az nem kerül fel — nem találunk ki párt.
 
-Új kép: a webp a `img/` mappába, egy új sor a listába — kész.
+**Új pár hozzáadása:** a két webp az `img/` mappába (kb. 1150–1200 px oldalhossz), egy új blokk a `BA_CONFIG`-ba, a `w`/`h` értékek a valós méret — kész.
 
 ## 4. Amit az oldalon NEM találsz (és nem is írtunk bele)
 
@@ -47,20 +49,17 @@ A képek két listában vannak a script tetején:
 
 ## 5. Ismert javítanivalók éles üzem előtt
 
-1. **Űrlap-küldés**: a form most e-mail-kliensben (mailto) nyitja meg az üzenetet. Éles üzemhez ajánlott egy űrlap-végpont (pl. Formspree) bekötése.
-2. **Domain után**: canonical link + éles OpenGraph-kép (1200×630) beállítása.
-3. **Adatkezelés**: a footer most e-mail hivatkozást ad meg — hivatalos adatkezelési tájékoztató tölthető a helyére.
-4. A hero-fotó cserélhető bármikor: az `img/ba-p2-utana.webp` fájl helyére másik, hasonló arányú (4:3) kép.
+1. **Domain után**: canonical link + éles OpenGraph-kép (1200×630) beállítása.
+2. A hero-fotó cserélhető bármikor: az `img/ba-p2-utana.webp` fájl helyére másik, hasonló arányú (4:3) kép.
 
 ## 6. Kép-karbantartás
 
-- Az eredeti fotók **változatlanul** megmaradnak az `img/eredeti/` mappában — a webp-ek ebből készültek, 1200 px oldalhosszra méretezve.
-- Ha egy kártya-kivágás mégsem jó: a `GALLERY_CONFIG` adott sorában a `pos` értékkel finomítható (`'50% 30%'` = feljebb néz, `'50% 85%'` = lejjebb).
+- Az eredeti fotók **változatlanul** megmaradnak az `img/eredeti/` mappában — a webp-ek ebből készültek, kb. 1150–1200 px oldalhosszra méretezve.
 - Újrafeldolgozáshoz (ugyanaz a minőség, mint a mostani): bármilyen eszközzel 1200 px-re méretezett, q~72-es WebP a megfelelő formátum.
 
 ## 7. Státusz
 
-- ✅ Minden fotó ellenőrizve (integritás + vágás), a galériából a nem egyértelmű/ismétlődő képek eltávolítva.
+- ✅ Csak hiteles, azonos nézőpontú előtte–utána csúszkás párok vannak fent (2 pár).
+- ✅ Elsődleges konverzió a telefonhívás (`tel:` linkek: header, mobil hívósáv, kapcsolat szekció, footer).
 - ✅ Reszponzív: 320–1440 px szélességen tesztelve, nulla kicsúszás.
-- ✅ Előtte–utána szekció, galéria szűrőkkel, lightbox, űrlap, mobil hívósáv működik.
-- ⬜ Éles tartalom-feltöltés (képek száma bővíthető bármikor), formbackend, domain.
+- ⬜ Domain bekötése után: canonical + OG-kép.
