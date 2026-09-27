@@ -725,11 +725,69 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
       Valós referenciafotó: emelt medence kész, burkolt kávával.
       Sarokjelölések és a kapcsolattartó-címke a fotó fölött marad.
     -->
-    <div class="hero-visual">
+    <div class="hero-visual" aria-hidden="true">
       <div class="hv-frame">
         <span class="hv-corner tl"></span>
         <span class="hv-corner br"></span>
-        <img src="img/ba-p2-utana.webp" alt="Kivitelezett, burkolt kávájú medence a kertben — kész állapot" width="1150" height="863" fetchpriority="high" decoding="async">
+        <svg class="hv-scene" viewBox="0 0 560 640" preserveAspectRatio="xMidYMid slice" fill="none">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3d4248"/><stop offset=".6" stop-color="#2b2f33"/><stop offset="1" stop-color="#232629"/>
+            </linearGradient>
+            <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#c47a4b" stop-opacity=".5"/><stop offset="1" stop-color="#c47a4b" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#3a3f45"/><stop offset="1" stop-color="#2e3236"/>
+            </linearGradient>
+          </defs>
+          <rect width="560" height="640" fill="url(#sky)"/>
+          <circle cx="430" cy="150" r="150" fill="url(#sun)"/>
+          <circle cx="430" cy="150" r="46" fill="#c47a4b" opacity=".35"/>
+          <g stroke="#4a4f55" stroke-width="2" opacity=".8">
+            <path d="M0 470h560"/><path d="M60 470V430l18-12 18 12v40"/><path d="M110 430V390l18-12 18 12v40"/><path d="M160 470V430l18-12 18 12v40"/><path d="M210 430V390l18-12 18 12v40"/><path d="M260 470V430l18-12 18 12v40"/><path d="M310 430V390l18-12 18 12v40"/><path d="M360 470V430l18-12 18 12v40"/><path d="M410 430V390l18-12 18 12v40"/><path d="M460 470V430l18-12 18 12v40"/><path d="M510 430V390l18-12 18 12v40"/>
+          </g>
+          <g>
+            <rect x="120" y="330" width="300" height="200" fill="url(#wall)" stroke="#565b61" stroke-width="2"/>
+            <rect x="120" y="292" width="322" height="42" fill="#33373b" stroke="#565b61" stroke-width="2"/>
+            <path d="M110 292 281 180l171 112" stroke="#5f646a" stroke-width="2" fill="none"/>
+            <path d="M110 292 281 180l171 112" stroke="#c47a4b" stroke-width="1.4" opacity=".55" fill="none"/>
+            <g stroke="#565b61" stroke-width="1.6" opacity=".8">
+              <path d="M281 180v-14M244 204v-14M207 228v-14M170 252v-14M133 276v-14M318 204v-14M355 228v-14M392 252v-14M429 276v-14"/>
+            </g>
+            <g fill="#1b1d20" stroke="#565b61" stroke-width="2">
+              <rect x="152" y="360" width="62" height="76"/><rect x="238" y="360" width="62" height="76"/>
+              <rect x="336" y="360" width="56" height="140"/>
+            </g>
+            <path d="M152 398h62M183 360v76M238 398h62M269 360v76M364 360v140" stroke="#565b61" stroke-width="1.4"/>
+            <g stroke="#6a6f75" stroke-width="2.4">
+              <path d="M96 530V250M96 250h348M96 320h348M96 390h348M96 460h348M96 530h348"/>
+              <path d="M148 250v280M204 250v280M260 250v280M316 250v280M372 250v280M428 250v280"/>
+            </g>
+            <g stroke="#6a6f75" stroke-width="1.6" opacity=".75">
+              <path d="M96 320l52-70M148 390l56-70M204 460l56-70M260 530l56-70M316 460l56-70M372 390l56-70M428 320l16-22"/>
+            </g>
+          </g>
+          <rect y="530" width="560" height="110" fill="#202327"/>
+          <g stroke="#2e3236" stroke-width="1.4"><path d="M0 560h560M0 596h560"/></g>
+          <g stroke="#54595f" stroke-width="2.6" opacity=".9">
+            <path d="M470 530V210"/><path d="M470 210h-190"/><path d="M470 210l70 34"/><path d="M470 240v14"/><path d="M448 210v-18M470 192v18"/>
+          </g>
+          <path d="M280 210v46" stroke="#54595f" stroke-width="1.6"/>
+          <rect x="266" y="256" width="28" height="18" fill="#54595f"/>
+          <g stroke="#c47a4b" stroke-width="1.4" opacity=".85">
+            <path d="M60 330v200M52 330h16M52 530h16"/>
+            <path d="M120 610h300M120 602v16M420 602v16"/>
+          </g>
+          <g font-family="ui-monospace,monospace" font-size="12" fill="#c47a4b" opacity=".9">
+            <text x="40" y="436" transform="rotate(-90 40 436)">14.20</text>
+            <text x="252" y="628">9.80</text>
+          </g>
+          <g transform="translate(96 236)">
+            <rect x="-12" y="-12" width="24" height="24" rx="5" fill="#c47a4b"/>
+            <circle cx="0" cy="0" r="4.5" fill="#1d1f22"/>
+          </g>
+        </svg>
         <span class="hv-chip">Régió: <b>Pest megye</b></span>
         <div class="hv-tag"><span class="pulse"></span><span><b>Varga Gyula</b><span>kapcsolattartó — az első beszélgetéstől az átadásig</span></span></div>
       </div>
@@ -1103,15 +1161,6 @@ const BA_CONFIG = [
     title: 'Terasz-lépcső — szerkezettől a burkolt felületig', cat: 'Burkolás',
     ratio: '4/3',
     desc: 'A fagerendás zsaluzattal képzett lépcsőszerkezettől a nagy formátumú lapokkal burkolt, kész felületig.'
-  },
-  {
-    before: 'img/ba-p9-elotte.webp', after: 'img/ba-p9-utana.webp',
-    w: 1150, h: 863,
-    altB: 'Kültéri lépcső szinterezés alatt, nagy formátumú kőlapokkal',
-    altA: 'Ugyanaz a lépcső kifugázva, kész állapotban',
-    title: 'Terasz-lépcső — szinterezéstől a kész felületig', cat: 'Kültér',
-    ratio: '4/3',
-    desc: 'Nagy formátumú kőlap fektetése és fuga a kültéri lépcsőn — ugyanarról a pontról fotózva.'
   }
 ];
 
