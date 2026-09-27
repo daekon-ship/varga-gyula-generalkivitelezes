@@ -1,6 +1,7 @@
 # Weboldal átadási dokumentum
 
-**Projekt:** Varga Gyula — Generálkivitelezés · egyoldalas bemutatkozó weboldal
+**Projekt:** K.T BYGG HUNGARY KFT · egyoldalas bemutatkozó weboldal
+**Kapcsolattartó:** Varga Gyula
 **Fájl:** `index.html` (egyfájlos oldal, külső függőség csak a Google Fonts)
 **Képek:** `img/` mappa (webp, optimalizálva) + `img/eredeti/` (eredeti JPG-ek, változatlan)
 **Utolsó frissítés:** 2026. szeptember
@@ -17,7 +18,7 @@
 
 | Mit | Hol az `index.html`-ben |
 |---|---|
-| Cégnév (most: „Varga Gyula – Generálkivitelezés") | `<title>`, header `.brand-name`, footer, `og:title` |
+| Cégnév (most: **K.T BYGG HUNGARY KFT**) | `<title>`, header `.brand-name`, footer, `og:title` |
 | Telefonszám (+36 70 251 2561) | keresés: `702512561` — header, callbar, kapcsolat szekció, footer |
 | E-mail (gyulavarga68@gmail.com) | keresés: `gyulavarga68` — kapcsolat szekció + footer |
 | Logó | a `.brand-mark` SVG-k (header, footer) + a `<link rel="icon">` favicon |
