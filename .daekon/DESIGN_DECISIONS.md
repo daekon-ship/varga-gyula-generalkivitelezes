@@ -1,5 +1,20 @@
 # DESIGN DECISIONS — K.T BYGG HUNGARY KFT
 
+## 2026-09-29 — FULL REDESIGN (DAEKON v12.2)
+
+### Vizuális irány: A — ARCHITECTURAL EDITORIAL (kiválasztva)
+- A: Architectural Editorial — nagy tipográfia, masszív fotó,(edit. rács). ✅ KIVÁLASZTVA
+- B: Cinematic Construction — full-width mozaik; erős, de a meglévő 5 BA-pár + editorial grid mellett redundáns.
+- C: Modern Industrial Premium — technikai vonalak; a jelenlegi már ebbe az irányba megy, kevesebb emelkedést ad.
+- Döntés oka: a meglévő grafit+röz alap erős; a valós fotóanyag (epizódos építkezés) editorial sorozat-ként a legértékesebb; mobil-art-direction a legkiszámíthatóbb.
+
+### Új fő elemek
+- Hero: valós fotó (ba-p6-utana) full-bleed, sötét overlay, nagy display-tipográfia
+- Kiemelt munkák: 3 nagy editorial blokk (medence / medencetest / lépcső) számozással
+- MINDEN MUNKA: sűrű, vegyes arányú rács (26 kép) + lightbox (Escape, fókuszcsapda, srcset 1200/1800)
+- Előtte–utána: marad 5 hiteles pár, továbbra is csúszkás (meglévő komponens)
+- Szolgáltatások: számozott index-lista ikon-kártyák helyett
+
 ## 2026-09-29
 
 ### 1. Csúszkás párok szigorú hitelességi szabály

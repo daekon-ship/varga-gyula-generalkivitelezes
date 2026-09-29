@@ -1,10 +1,10 @@
 # Weboldal átadási dokumentum
 
 **Projekt:** K.T BYGG HUNGARY KFT · egyoldalas bemutatkozó weboldal
-**Kapcsolattartó:** Varga Gyula
+**Kapcsolattartó:** Varga Gyula (ügyvezető)
 **Fájl:** `index.html` (egyfájlos oldal, külső függőség csak a Google Fonts)
-**Képek:** `img/` mappa (webp, optimalizálva) + `img/eredeti/` (eredeti JPG-ek, változatlan)
-**Utolsó frissítés:** 2026. szeptember
+**Képek:** `img/` mappa (webp, optimalizálva), `img/g/` (galéria-deriváltak), `img/eredeti/` (eredeti JPG-ek, változatlan)
+**Utolsó frissítés:** 2026. szeptember — v4 "Architectural Editorial" redesign
 
 ---
 
@@ -24,7 +24,17 @@
 | Régió (Budapest és Pest megye) | keresés: `Budapest` — title, meta, topbar, hero, rólunk, GYIK, footer |
 | Logó | a `.brand-mark` SVG-k (header, footer) + a `<link rel="icon">` favicon |
 
-## 3. Hogyan bővíthető új csúszkás párral
+## 3. Galéria bővítése
+
+Az összes munkafotó a scriptben lévő **GALLERY** listában van. Új kép hozzáadása:
+1. Az eredeti JPG az `img/eredeti/` mappába (változatlanul megmarad)
+2. Két webp derivált: `img/g/[név]-1200.webp` (galéria) és `img/g/[név]-1800.webp` (lightbox), kb. q70–72 minőség
+3. Egy új sor a `GALLERY` listában: `{ id:'[név]', o:'álló'|'fekvő', cap:'rövid leírás', w2:true|false, h2:true|false }`
+   - `w2`: dupla szélességű csempe · `h2`: dupla magasságú csempe (nagy kiemeléshez)
+
+A lightbox automatikusan működik: nyilakkal lépkedhet, Escape/zár-gomb bezár, fókuszcsapdás, keyboard-elérhető.
+
+## 3b. Hogyan bővíthető új csúszkás párral
 
 Az előtte–utána párok a script tetején a **`BA_CONFIG`** listában vannak. Egy sor = egy pár, **kizárólag csúszkás** megjelenítéssel:
 
@@ -59,9 +69,12 @@ Az előtte–utána párok a script tetején a **`BA_CONFIG`** listában vannak.
 - Az eredeti fotók **változatlanul** megmaradnak az `img/eredeti/` mappában — a webp-ek ebből készültek, kb. 1150–1200 px oldalhosszra méretezve.
 - Újrafeldolgozáshoz (ugyanaz a minőség, mint a mostani): bármilyen eszközzel 1200 px-re méretezett, q~72-es WebP a megfelelő formátum.
 
-## 7. Státusz
+## 7. Státusz (v4 redesign után)
 
-- ✅ Csak hiteles, azonos nézőpontú előtte–utána csúszkás párok vannak fent (5 pár: emelt medence, medencetest, fóliázás→kész medence, terasz-lépcső szerkezet→burkolat, külső kőlépcső burkolás alatt→kész).
-- ✅ Elsődleges konverzió a telefonhívás (`tel:` linkek: header, mobil hívósáv, kapcsolat szekció, footer).
-- ✅ Reszponzív: 320–1440 px szélességen tesztelve, nulla kicsúszás.
-- ⬜ Domain bekötése után: canonical + OG-kép.
+- ✅ 40 valós munkafotó van fent: hero + 3 kiemelt projekt + 5 hiteles csúszkás pár + 25 képes galéria lightboxszal
+- ✅ Csak hiteles, azonos nézőpontú előtte–utána csúszkás párok (5 pár)
+- ✅ Elsődleges konverzió a telefonhívás (`tel:` linkek: header, mobil hívósáv, kapcsolat szekció, footer)
+- ✅ Reszponzív: 320–1440 px szélességen tesztelve, nulla kicsúszás, külön mobil kompozíció
+- ✅ SEO: canonical, Open Graph, JSON-LD (csak hiteles adatokkal), 1 db H1, szemantikus struktúra
+- ✅ Akadálymentesítés: fókuszcsapdás lightbox, Escape kezelés, aria-labelek, reduced-motion támogatás
+- ⬜ Domain bekötése után: a canonical URL-t frissíteni az éles domainre + éles OG-kép (1200×630)
