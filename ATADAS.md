@@ -20,7 +20,8 @@
 |---|---|
 | Cégnév (most: **K.T BYGG HUNGARY KFT**) | `<title>`, header `.brand-name`, footer, `og:title` |
 | Telefonszám (+36 70 251 2561) | keresés: `702512561` — header, callbar, kapcsolat szekció, footer |
-| E-mail (gyulavarga68@gmail.com) | keresés: `gyulavarga68` — kapcsolat szekció + footer |
+| E-mail (ktbygg.hungary@gmail.com) | keresés: `ktbygg.hungary` — kapcsolat szekció + footer |
+| Régió (Budapest és Pest megye) | keresés: `Budapest` — title, meta, topbar, hero, rólunk, GYIK, footer |
 | Logó | a `.brand-mark` SVG-k (header, footer) + a `<link rel="icon">` favicon |
 
 ## 3. Hogyan bővíthető új csúszkás párral
@@ -60,7 +61,7 @@ Az előtte–utána párok a script tetején a **`BA_CONFIG`** listában vannak.
 
 ## 7. Státusz
 
-- ✅ Csak hiteles, azonos nézőpontú előtte–utána csúszkás párok vannak fent (4 pár: emelt medence, medencetest, fóliázás→kész medence, lépcső-szerkezet→burkolat).
+- ✅ Csak hiteles, azonos nézőpontú előtte–utána csúszkás párok vannak fent (5 pár: emelt medence, medencetest, fóliázás→kész medence, terasz-lépcső szerkezet→burkolat, külső kőlépcső burkolás alatt→kész).
 - ✅ Elsődleges konverzió a telefonhívás (`tel:` linkek: header, mobil hívósáv, kapcsolat szekció, footer).
 - ✅ Reszponzív: 320–1440 px szélességen tesztelve, nulla kicsúszás.
 - ⬜ Domain bekötése után: canonical + OG-kép.
