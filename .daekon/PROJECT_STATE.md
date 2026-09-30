@@ -68,3 +68,12 @@ FTP élesítés (we052.tarhely.com), utána domain/OG-kép az ügyféllel egyezt
 - Éles ellenőrzés: HTTP 200, minden SEO meta helyesen él, og:image 200
 - Push: ef4e11d · FTP: index.html frissítve
 ## ÁLLAPOT: ÜGYFÉLNEK ÁTADHATÓ
+
+## PRODUCTION HOTFIX — 2026-09-30 (utolsó polish) KÉSZ
+- Duplikációs audit (perceptuális hash, 24×24): kert-kesz-nagy = medence-kesz-dron (hash 0!) → kert-kesz-nagy KIVÉVE, mindkét webp törölve (lokál + FTP DELE)
+- Lépcsős képek EXIF: 1000008672/8673 orientation=1, webp méret helyes — NEM volt ferdén forgatott kép; a korábbi "ferde" benyomás a hibásan feliratozott medenceképből jött (az előző körben javítva)
+- Projekt-03 mini: kert-kesz-nagy helyett villa-haz-kesz-3 (valódi kész ház fotó, nem duplikálja a galériát)
+- Galéria VÉGLEGES: 16 elem, 0 duplikátum, 0 hiányzó hivatkozás, 5 fázis-fejléc
+- QA: 360/390/430/768/1280 éles domainen — 0 overflow, 0 broken, 0 console error, 0 404, lightbox wrap-around OK, burger OK, 6 tel CTA
+- Push: c8f10b9 · FTP: index.html frissítve + 2 törölt webp DELE
+## ÁLLAPOT: ÜGYFÉLNEK VÉGLEGESEN ÁTADHATÓ — további módosítás csak ügyfélkérésre
