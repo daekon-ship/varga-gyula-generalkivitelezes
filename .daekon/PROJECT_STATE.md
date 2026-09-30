@@ -56,3 +56,15 @@ FTP élesítés (we052.tarhely.com), utána domain/OG-kép az ügyféllel egyezt
 4. Kontakt e-mail: kártyás formára (ikon+címke), a telefon-kártyával egységes.
 - QA: 360/390/768/1280px, 0 overflow, 0 törött kép, lightbox OK, élő oldalon is ellenőrizve.
 - Push: 2aafeb2, FTP: index.html frissítve, éles ellenőrizve.
+
+## PRODUCTION RELEASE — 2026-09-30 VÉGLEGES
+- KRITIKUS javítás: lepcso-kesz-terasz (medencés kép lépcsőként) KIVÉVE a galériából és Projekt-02 miniből; fazis-lepcso-zsaluzas → "Medencetest és lépcső — burkolás alatt" (Medence fázis)
+- BA audit: p16 KIVÉVE (nem azonos nézőpont), p17 → medence-lépcsősor cím, p2 cím pontosítva. VÉGSŐ: 6 hiteles pár (p2,p6,p13,p14,p15,p17)
+- SEO: canonical + og:url + og:image → https://epuletesmedence.hu/ (abszolút); github.io NINCS production metában; JSON-LD jobTitle
+- Tartalom: "Székhely" → "Működési terület — Budapest és Pest megye"
+- Tipográfia: hero h1 84→66, sub 17.5→16, h2 46→40, intro big 30→26 (user visszajelzés: szöveg túl nagy)
+- Galéria: 17 elem (minőség > mennyiség), feliratok teljesen valósak
+- QA: 360/390/430/768/1024/1280/1440px — 0 overflow, 0 törött kép, lightbox wrap-around + Escape OK, burger OK, 1 H1, heading sorrend OK, 0 console error, 0 404
+- Éles ellenőrzés: HTTP 200, minden SEO meta helyesen él, og:image 200
+- Push: ef4e11d · FTP: index.html frissítve
+## ÁLLAPOT: ÜGYFÉLNEK ÁTADHATÓ

@@ -4,11 +4,20 @@
 **Kapcsolattartó:** Varga Gyula (ügyvezető)
 **Fájl:** `index.html` (egyfájlos oldal, külső függőség csak a Google Fonts)
 **Képek:** `img/` mappa (webp, optimalizálva), `img/g/` (galéria-deriváltak), `img/eredeti/` (eredeti JPG-ek, változatlan)
-**Utolsó frissítés:** 2026. szeptember — v4 "Architectural Editorial" redesign + v4.1 képfeltöltés
+**Utolsó frissítés:** 2026. szeptember — v4 redesign + production release QA
+
+**ÉLES DOMAIN:** https://epuletesmedence.hu/ (canonical, og:url, og:image ide mutat)
+**Publikus GitHub mirror:** daekon-ship/varga-gyula-generalkivitelezes (Pages másodlagos)
+
+**Végleges tartalmi állapot:**
+- Galéria: **17 kép**, munkafolyamat-kronológia (5 fázis-fejléc), minden felirat a valós képtartalmat írja le
+- Előtte–utána csúszkák: **6 hiteles pár** (p2 medence szerkezet, p6 medencetest, p13 fóliázás→kész, p14 terasz-lépcső, p15 kőlépcső, p17 medence-lépcsősor) — csak azonos nézőpontú, valós párok
+- Kontakt: +36 70 251 2561 · ktbygg.hungary@gmail.com · Kapcsolattartó: Varga Gyula ügyvezető
+- Működési terület: Budapest és Pest megye
 
 **v4.1 változások:**
 - Galéria átrendezve **munkafolyamat-kronológiába** (fázis-fejlécekkel): Földmunka és szerkezet → Medence építés → Lépcsők és burkolás → Kész medence → Kész ház és kert (23 kép).
-- 2 új csúszkás pár: `ba-p16` (kert és lépcsősor — tereprendezés → kész) és `ba-p17` (nagy kültéri lépcsősor — burkolás alatt → kész). Összesen 7 pár.
+- Production QA: ba-p16 pár kivéve (nem azonos nézőpont), lépcső/medence képfeliratok teljes auditja, canonical/og → epuletesmedence.hu
 - Új kész- és fázisképek a galériában (villa homlokzat kész, lépcső kész, támfal, fóliázás, burkolás fázisok).
 - Logó hozzáadva: `logo/logo.svg` + `logo-{1024,512,256,128}.png` (küldhető az ügyfélnek).
 - Mobiljavítás: hero alsó sáv (`.hero-strip`) mobilon nem zsugorodik össze, wrapper törik.
