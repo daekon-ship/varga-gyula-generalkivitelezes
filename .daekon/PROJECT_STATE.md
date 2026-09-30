@@ -48,3 +48,11 @@ FTP élesítés (we052.tarhely.com), utána domain/OG-kép az ügyféllel egyezt
 - Feltöltve: index.html + img/ (eredeti archív KIVÉVE) + logo/ — 110/110 fájl, 0 hiba
 - Ellenőrizve: index 200, webp-k 200, logo 200, title OK, v4.1 tartalom (fázis-fejlécek, ba-p16) él
 - Tanulság: FTP feltöltésnél a nem létező almappába STOR elakad → MKD előbb (curl -Q "MKD dir")
+
+## VIZUÁLIS JAVÍTÁSI KÖR — 2026-09-30 (user 4 észrevétele alapján) KÉSZ
+1. Hero badge: white-space:nowrap — nem törik a pill-kereten belül
+2. Hero-strip mobil GYÖKERE megtalálva: a .hero flex-konténer, a strip flex-itemként a hero-inner MELÉ csúszott. Fix: flex-wrap:wrap a .hero-n + flex:0 0 100% a stripen. Mobilon 2×2 grid.
+3. Galéria 23→18 elem: 5 villa-duplikátum kivéve (villa-homlokzat-kesz/-2, villa-haz-kesz-1/-3, +1), csak villa-haz-kesz-2 + fazis-villa-homlokzat maradt. FELIRATOK JAVÍTVA a valós tartalomhoz: homlokzat-reszlet→medence alapozás, kert-kesz→medence EPS, terasz-reszlet kikerült (régi ház bejárat), 1000008286→kocsifeljáró, fazis-tamfal→garázskapu, fazis-alapozas→medence földmunka.
+4. Kontakt e-mail: kártyás formára (ikon+címke), a telefon-kártyával egységes.
+- QA: 360/390/768/1280px, 0 overflow, 0 törött kép, lightbox OK, élő oldalon is ellenőrizve.
+- Push: 2aafeb2, FTP: index.html frissítve, éles ellenőrizve.
