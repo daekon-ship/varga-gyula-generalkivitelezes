@@ -30,3 +30,15 @@ Kész a teljes "Architectural Editorial" redesign: hero valós fotóval, 3 kieme
 
 ## Next best action
 Domain + OG-kép, amikor az ügyfél megadja; új referenciapárok érzékeny szűrése.
+
+
+## v4.1 — 2026-09-30
+- 5 új munkakép feldolgozva (munkaképek/): rózsaszín villa kész (3 nézet — megegyezik a villa-haz-kesz-1/2/3-mal, hash-ellenőrizve), kert kész nagy, lépcső zsaluzás/burkolás pár.
+- Galéria 23 elemre bővülve, munkafolyamat-kronológia + .g-fazis fázis-fejlécek (5 fázis).
+- 2 új BA-pár: ba-p16 (tereprendezés→kész kert), ba-p17 (lépcső burkolás→kész). 7 pár összesen.
+- Projekt-02 mini kicserélve: 8286 (más helyszín, 2024-08-09) → lepcso-kesz-terasz.
+- Mobiljavítás: .hero-strip flex:0 0 100% (flex-itemként összehúzódott → villámgyors fix, tanulság: flex konténerbe tett stripnek explicit flex-basis kell).
+- QA: 390/360/768/1280px, nincs overflow, 0 törött kép, lightbox + burger + BA-range működik.
+- Takarítás: kontakt/montázs segédfájlok törölve.
+## Next best action
+FTP élesítés (we052.tarhely.com), utána domain/OG-kép az ügyféllel egyeztetve.

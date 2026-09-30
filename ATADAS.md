@@ -4,7 +4,14 @@
 **Kapcsolattartó:** Varga Gyula (ügyvezető)
 **Fájl:** `index.html` (egyfájlos oldal, külső függőség csak a Google Fonts)
 **Képek:** `img/` mappa (webp, optimalizálva), `img/g/` (galéria-deriváltak), `img/eredeti/` (eredeti JPG-ek, változatlan)
-**Utolsó frissítés:** 2026. szeptember — v4 "Architectural Editorial" redesign
+**Utolsó frissítés:** 2026. szeptember — v4 "Architectural Editorial" redesign + v4.1 képfeltöltés
+
+**v4.1 változások:**
+- Galéria átrendezve **munkafolyamat-kronológiába** (fázis-fejlécekkel): Földmunka és szerkezet → Medence építés → Lépcsők és burkolás → Kész medence → Kész ház és kert (23 kép).
+- 2 új csúszkás pár: `ba-p16` (kert és lépcsősor — tereprendezés → kész) és `ba-p17` (nagy kültéri lépcsősor — burkolás alatt → kész). Összesen 7 pár.
+- Új kész- és fázisképek a galériában (villa homlokzat kész, lépcső kész, támfal, fóliázás, burkolás fázisok).
+- Logó hozzáadva: `logo/logo.svg` + `logo-{1024,512,256,128}.png` (küldhető az ügyfélnek).
+- Mobiljavítás: hero alsó sáv (`.hero-strip`) mobilon nem zsugorodik össze, wrapper törik.
 
 ---
 
