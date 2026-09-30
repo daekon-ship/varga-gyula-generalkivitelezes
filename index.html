@@ -127,7 +127,7 @@ header.site.scrolled{box-shadow:0 12px 40px -18px rgba(0,0,0,.7)}
 .mnav .btn{margin-top:14px}
 
 /* ================= HERO — tisztta architektonikus hátér, fotó nélkül ================= */
-.hero{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;overflow:hidden;background:var(--bg-2)}
+.hero{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;flex-wrap:wrap;overflow:hidden;background:var(--bg-2)}
 /* architektonikus vonalháló */
 .hero::before{content:"";position:absolute;inset:0;
   background-image:
@@ -152,8 +152,8 @@ header.site.scrolled{box-shadow:0 12px 40px -18px rgba(0,0,0,.7)}
 .hero-skyline{position:absolute;right:-2%;bottom:18%;width:min(46vw,620px);opacity:.5;pointer-events:none}
 .hero-inner{position:relative;z-index:2;width:100%;padding:120px 0 64px}
 .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
-.hero-badge{display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px 10px;border:1px solid rgba(255,255,255,.22);
-  border-radius:100px;padding:7px 16px 7px 12px;font-size:12px;font-weight:600;letter-spacing:.06em;
+.hero-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);
+  border-radius:100px;padding:8px 18px 8px 14px;font-size:12px;font-weight:600;letter-spacing:.06em;white-space:nowrap;
   color:#e8e6e1;background:rgba(23,25,28,.4);backdrop-filter:blur(6px);margin-bottom:26px}
 .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--copper);flex:none}
 .hero h1{font-family:var(--display);font-size:clamp(38px,7.6vw,84px);line-height:1.02;letter-spacing:-.025em;
@@ -170,7 +170,7 @@ header.site.scrolled{box-shadow:0 12px 40px -18px rgba(0,0,0,.7)}
 .hero-side-item b{color:#fff;font-weight:600;display:block;font-size:14.5px}
 .hero-side-item svg{flex:none;color:var(--copper-hi);margin-top:2px}
 
-.hero-strip{position:relative;z-index:2;flex:0 0 100%;border-top:1px solid rgba(255,255,255,.14);
+.hero-strip{position:relative;z-index:2;flex:0 0 100%;align-self:flex-end;border-top:1px solid rgba(255,255,255,.14);
   background:rgba(23,25,28,.55);backdrop-filter:blur(10px)}
 .hero-strip .wrap{display:flex;gap:36px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}
 .hero-strip b{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#e8e6e1;display:flex;align-items:center;gap:10px}
@@ -350,9 +350,13 @@ header.site.scrolled{box-shadow:0 12px 40px -18px rgba(0,0,0,.7)}
 .c-phone small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p-ink-3);margin-bottom:4px}
 .c-phone b{font-family:var(--display);font-size:clamp(24px,5vw,34px);letter-spacing:.01em;color:var(--p-ink);white-space:nowrap}
 .c-phone .cta-note{display:block;margin-top:4px;font-size:13px;color:var(--copper);font-weight:600}
-.c-mail{display:inline-flex;align-items:center;gap:14px;margin-top:26px;font-weight:600;font-size:16.5px;color:var(--p-ink-2);overflow-wrap:anywhere}
-.c-mail svg{flex:none;color:var(--copper)}
-.c-mail:hover{color:var(--p-ink)}
+.c-mail{display:inline-flex;align-items:center;gap:16px;margin-top:14px;background:#fff;border:1px solid var(--paper-line);
+  border-radius:12px;padding:18px 24px;font-weight:600;font-size:16px;color:var(--p-ink);overflow-wrap:anywhere;
+  transition:transform .2s,box-shadow .2s;box-shadow:0 22px 44px -32px rgba(20,18,12,.35)}
+.c-mail .ico{width:44px;height:44px;border-radius:8px;background:var(--copper);color:#fff;flex:none;display:flex;align-items:center;justify-content:center}
+.c-mail svg{flex:none;color:#fff}
+.c-mail small{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p-ink-3);margin-bottom:2px;text-align:left}
+.c-mail:hover{transform:translateY(-2px);box-shadow:0 18px 36px -18px rgba(20,18,12,.4);color:var(--p-ink)}
 .c-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;text-align:left}
 .c-steps div{background:#fff;border:1px solid var(--paper-line);border-radius:10px;padding:22px 20px}
 .c-steps i{font-style:normal;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--copper);display:block;margin-bottom:8px}
@@ -412,8 +416,8 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
   .hero-beam{animation-duration:7s}
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{width:100%}
-  .hero-strip .wrap{gap:8px 18px;justify-content:flex-start;flex-wrap:wrap}
-  .hero-strip b{font-size:10.5px;white-space:nowrap}
+  .hero-strip .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px;justify-content:stretch}
+  .hero-strip b{font-size:10.5px;white-space:nowrap;justify-content:flex-start}
   .intro,.work,.ba-sec,.gallery,.process,.about,.faq{padding:76px 0}
   .services{padding:76px 0}
   .sec-head{margin-bottom:40px}
@@ -430,6 +434,8 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
   .c-phone .ico{width:48px;height:48px;border-radius:8px}
   .c-phone .ico svg{width:22px;height:22px}
   .c-phone b{white-space:normal;font-size:clamp(22px,6.4vw,28px)}
+  .c-mail{width:100%;max-width:100%;padding:16px 18px;font-size:14.5px;gap:12px}
+  .c-mail .ico{width:38px;height:38px}
   .c-steps{grid-template-columns:1fr;margin-top:40px}
   .topbar-right{display:none}
   .topbar{height:38px}
@@ -712,8 +718,8 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
         <div class="chips"><span class="wchip">Homlokzat</span><span class="wchip">Hőszigetelés</span><span class="wchip">Kert</span></div>
         <p>Elkészült lakóház világos homlokzattal, rendezett kerttel és járdafelületekkel — a bejárástól az átadásig egy kézből.</p>
         <div class="wmini">
-          <img src="img/g/villa-haz-kesz-2-1200.webp" alt="Homlokzat részlet" loading="lazy" decoding="async" width="1200" height="900">
-          <img src="img/g/kert-kesz-1200.webp" alt="Kert és járdafelület" loading="lazy" decoding="async" width="900" height="1200">
+          <img src="img/g/fazis-villa-homlokzat-1200.webp" alt="Homlokzat hőszigetelés közben" loading="lazy" decoding="async" width="1200" height="900">
+          <img src="img/g/kert-kesz-nagy-1200.webp" alt="Kert és járdafelület" loading="lazy" decoding="async" width="1200" height="900">
         </div>
       </div>
     </article>
@@ -831,8 +837,10 @@ footer h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spaci
       </a>
       <br>
       <a class="c-mail" href="mailto:ktbygg.hungary@gmail.com">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-        ktbygg.hungary@gmail.com
+        <span class="ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        </span>
+        <span><small>E-mail</small>ktbygg.hungary@gmail.com</span>
       </a>
       <div class="c-steps">
         <div><i>01</i><b>Telefonos egyeztetés</b><p>Röviden elmondhatja a tervezett munkát, és egyeztetjük a következő lépést.</p></div>
@@ -962,36 +970,31 @@ const BA_CONFIG = [
   }
 ];
 
-/* ---------- GALÉRIA (minden valós munkafotó) ---------- */
+/* ---------- GALÉRIA (munkafolyamat-kronológia, szűrt képanyag) ---------- */
 const GALLERY = [
-  /* —— 1. FÖLDMUNKA ÉS ALAPOZÁS —— */
-  { id:'fazis-alapozas', o:'álló', cap:'Házalapozás — alapszerkezet kialakítása', fazis:'Földmunka és szerkezet' },
-  { id:'fazis-tamfal', o:'fekvő', cap:'Beton támfal Bordázással', w2:true, fazis:'Földmunka és szerkezet' },
-  { id:'fazis-villa-homlokzat', o:'fekvő', cap:'Villa homlokzat — hőszigetelés alatt', w2:true, fazis:'Földmunka és szerkezet' },
+  /* —— 1. FÖLDMUNKA ÉS SZERKEZET —— */
+  { id:'fazis-alapozas', o:'álló', cap:'Medence földmunka és alapozás', fazis:'Földmunka és szerkezet' },
+  { id:'fazis-tamfal', o:'fekvő', cap:'Beton szerkezet — garázskapu építés', w2:true, fazis:'Földmunka és szerkezet' },
+  { id:'fazis-villa-homlokzat', o:'fekvő', cap:'Lakóház homlokzat — hőszigetelés alatt', w2:true, fazis:'Földmunka és szerkezet' },
   /* —— 2. MEDENCE: SZERKEZET, SZIGETELÉS, BURKOLÁS —— */
   { id:'fazis-medence-szerkezet', o:'fekvő', cap:'Medencetest — szerkezet és szigetelés', w2:true, fazis:'Medence építés' },
   { id:'fazis-medence-foliazas', o:'álló', cap:'Medence — fóliázás előkészítése', fazis:'Medence építés' },
   { id:'fazis-medence-burkolas', o:'álló', cap:'Medence és terasz — burkolás alatt', fazis:'Medence építés' },
+  { id:'homlokzat-reszlet', o:'fekvő', cap:'Medence — alapozás és szigetelés', fazis:'Medence építés' },
+  { id:'kert-kesz', o:'álló', cap:'Medencetest — EPS hőszigetelés', fazis:'Medence építés' },
   /* —— 3. KÜLTÉRI LÉPCSŐ ÉS TERASZ —— */
   { id:'fazis-lepcso-zsaluzas', o:'fekvő', cap:'Kültéri lépcsősor — zsaluzás és burkolás alatt', w2:true, fazis:'Lépcsők és burkolás' },
   { id:'1000008673', o:'fekvő', cap:'Elkészült lépcsősor a teraszhoz', fazis:'Lépcsők és burkolás' },
   { id:'lepcso-kesz-terasz', o:'fekvő', cap:'Nagy kültéri lépcsősor — kész burkolattal', w2:true, fazis:'Lépcsők és burkolás' },
   { id:'1000008672', o:'fekvő', cap:'Elkészült kültéri lépcső', w2:true, fazis:'Lépcsők és burkolás' },
-  { id:'terasz-reszlet', o:'álló', cap:'Elkészült terasz', fazis:'Lépcsők és burkolás' },
-  { id:'1000008286', o:'fekvő', cap:'Burkolt kerti járda a ház mellett', fazis:'Lépcsők és burkolás' },
+  { id:'1000008286', o:'fekvő', cap:'Burkolt kocsifeljáró térburkolattal', fazis:'Lépcsők és burkolás' },
   /* —— 4. MEDENCE KÉSZ —— */
-  { id:'1000009254', o:'álló', cap:'Medencetest — simított szerkezet', fazis:'Kész medence' },
-  { id:'1000009256', o:'fekvő', cap:'Medence körüli burkolt terasz', fazis:'Kész medence' },
+  { id:'1000009254', o:'álló', cap:'Medencetest — simított szerkezet lépcsővel', fazis:'Kész medence' },
+  { id:'1000009256', o:'fekvő', cap:'Medence szerkezet és burkolt terasz', fazis:'Kész medence' },
   { id:'medence-kesz-dron', o:'fekvő', cap:'Elkészült medence a kertben — madártávlatból', w2:true, fazis:'Kész medence' },
   /* —— 5. KÉSZ HÁZ, HOMLOKZAT, KERT —— */
-  { id:'villa-homlokzat-kesz', o:'fekvő', cap:'Homlokzat világos festéssel', w2:true, fazis:'Kész ház és kert' },
-  { id:'villa-homlokzat-kesz-2', o:'fekvő', cap:'Elkészült villa homlokzattal és kőlépcsővel', w2:true, fazis:'Kész ház és kert' },
-  { id:'homlokzat-reszlet', o:'fekvő', cap:'Homlokzat részlet — hőszigetelés', fazis:'Kész ház és kert' },
-  { id:'villa-haz-kesz-1', o:'fekvő', cap:'Elkészült lakóház kerttel', w2:true, h2:true, fazis:'Kész ház és kert' },
-  { id:'villa-haz-kesz-2', o:'fekvő', cap:'Elkészült lakóház — homlokzat', w2:true, fazis:'Kész ház és kert' },
-  { id:'villa-haz-kesz-3', o:'fekvő', cap:'Elkészült lakóház — erkély és terasz', fazis:'Kész ház és kert' },
-  { id:'kert-kesz-nagy', o:'fekvő', cap:'Kert és lépcsősor — befejezett állapot', w2:true, fazis:'Kész ház és kert' },
-  { id:'kert-kesz', o:'álló', cap:'Kert és járdafelület a ház mellett', fazis:'Kész ház és kert' }
+  { id:'villa-haz-kesz-2', o:'fekvő', cap:'Elkészült lakóház homlokzattal', w2:true, h2:true, fazis:'Kész ház és kert' },
+  { id:'kert-kesz-nagy', o:'fekvő', cap:'Kert és lépcsősor — befejezett állapot', w2:true, fazis:'Kész ház és kert' }
 ];
 
 const gGrid = document.getElementById('gGrid');
