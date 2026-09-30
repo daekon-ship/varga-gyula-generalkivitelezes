@@ -42,3 +42,9 @@ Domain + OG-kép, amikor az ügyfél megadja; új referenciapárok érzékeny sz
 - Takarítás: kontakt/montázs segédfájlok törölve.
 ## Next best action
 FTP élesítés (we052.tarhely.com), utána domain/OG-kép az ügyféllel egyeztetve.
+
+## FTP ÉLESÍTÉS — 2026-09-30 KÉSZ
+- Éles cím: https://epuletesmedence.hu/ (we052.tarhely.com, FTP-gyökér = webroot)
+- Feltöltve: index.html + img/ (eredeti archív KIVÉVE) + logo/ — 110/110 fájl, 0 hiba
+- Ellenőrizve: index 200, webp-k 200, logo 200, title OK, v4.1 tartalom (fázis-fejlécek, ba-p16) él
+- Tanulság: FTP feltöltésnél a nem létező almappába STOR elakad → MKD előbb (curl -Q "MKD dir")
