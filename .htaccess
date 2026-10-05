@@ -1,0 +1,54 @@
+# ============================================================
+# K.T BYGG HUNGARY KFT — epuletesmedence.hu
+# Production security + cache szabályok (Apache / LiteSpeed)
+# ============================================================
+
+# ---- Security headerek ----
+<IfModule mod_headers.c>
+  # MIME-sniffing tiltása
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Clickjacking védelem (a frame-ancestors modern alternatívája; CSP-vel együtt)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Content-Security-Policy "frame-ancestors 'self'"
+
+  # Ne küldjön referrert külső oldalakra
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Kamera, mikrofon, földrajzi helyzet stb. tiltása
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+  # HSTS — CSAK akkor hagyd benne, ha a HTTPS minden aloldalon stabilan működik!
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ---- Cache szabályok ----
+# HTML soha ne cache-elődjön — a javítások azonnal látszanak
+<FilesMatch "\.html$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, must-revalidate"
+  </IfModule>
+</FilesMatch>
+
+# Képek hosszan cache-elhetők (fájlnevek verziózottak: -v2, -v3)
+<FilesMatch "\.(webp|png|jpg|jpeg|svg|ico)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </IfModule>
+</FilesMatch>
+
+# ---- Belső fájlok kizárása a webrootból (védelem mélységben) ----
+<FilesMatch "^(\.daekon|\.gitignore|ATADAS\.md)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/\.(daekon|git|freebuff)
+RedirectMatch 404 ^/munkak
+RedirectMatch 404 ^/ATADAS\.md
+RedirectMatch 404 ^/_ftpref
+
+# ---- Alapvető tiltások ----
+<FilesMatch "\.(env|key|pem|log|md|bak|orig)$">
+  Require all denied
+</FilesMatch>
+
+Options -Indexes
