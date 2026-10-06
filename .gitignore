@@ -11,6 +11,7 @@
 _ftpref/
 backup/
 backups/
+ftp-backup/
 
 # Ügyfél eredeti fotók (nem részei a production buildnek)
 munkaképek/
